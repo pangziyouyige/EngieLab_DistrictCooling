@@ -39,7 +39,7 @@ def make_plot(source):
 	mapper = LinearColorMapper(palette=colors, low=0, high=100)
 	color_bar = ColorBar(color_mapper=mapper, location=(0, 0), ticker=BasicTicker(desired_num_ticks=len(colors)), formatter=PrintfTickFormatter(format="%d"), scale_alpha=0.4)
 	plot.add_layout(color_bar, 'left')
-	plot.image_url(url=['shtest/static/images/sh1.jpg'], x=0, y=0, w=10, h=10, anchor="bottom_left")
+	plot.image_url(url=['myapp/static/images/sh1.jpg'], x=0, y=0, w=10, h=10, anchor="bottom_left")
 	plot.xgrid.grid_line_color = None
 	plot.ygrid.grid_line_color = None
 	plot.axis.visible=False
@@ -57,7 +57,7 @@ def update_plot(attr, old, new):
 	source.data.update(new_df.data)
 	plot.x_range.factors = [str(x) for x in list(range(1, length+1))]
 	plot.y_range.factors = [str(x) for x in list(range(1, width+1))]
-	plot.image_url(url=['shtest/static/images/sh1.jpg'], x=0, y=0, w=length, h=length, anchor="bottom_left")
+	plot.image_url(url=['myapp/static/images/sh1.jpg'], x=0, y=0, w=length, h=length, anchor="bottom_left")
 	
 	colors = ["#550b1d", "#933b41", "#cc7878", "#ddb7b1", "#dfccce", "#e2e2e2", "#c9d9d3", "#a5bab7", "#75968f"]
 	mapper = LinearColorMapper(palette=colors, low=0, high=100)
@@ -81,7 +81,7 @@ checkbox = CheckboxGroup(labels = factors, active = [])
 source = get_dataset()
 plot = make_plot(source)
 p = Div(text="""<h><b>The Shanghai city is now being evaluated by __ blocks for tessllation</b></h>""", width=600, height=15)
-img = Div(text="""<img src="shtest/static/images/icon.png" alt="Engie Lab China" height="55" width="90">""", width = 90, height = 55)
+img = Div(text="""<img src="myapp/static/images/icon.png" alt="Engie Lab China" height="55" width="90">""", width = 90, height = 55)
 
 slider.on_change("value", update_plot)
 checkbox.on_change("active", update_plot)
@@ -97,7 +97,7 @@ div_help = Div(text="""<b><h>INSTRUCTIONS</b></h></br></br>1.Drag the slider to 
 <img src="https://bokeh.pydata.org/en/latest/_images/PointDraw.png" alt="Point Draw Tool">
 <br></br> 
 2.Scores representing the estimated potentials of implementing district cooling are given to blocks, encoded with different colors. Hover the blocks to check the exact scores.<br></br>
-<img src="shtest/static/images/sh1.jpg" alt="Reference Map" height="200" width="200">
+<img src="myapp/static/images/sh1.jpg" alt="Reference Map" height="200" width="200">
 """,
 width=600, height=150)
 
