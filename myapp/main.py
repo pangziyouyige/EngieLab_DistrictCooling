@@ -108,3 +108,5 @@ layout=column(row(div, img), row(plot, column(p, widgetbox(slider, checkbox),col
 # show(layout)
 
 curdoc().add_root(layout)
+
+curdoc().title = "Engie Lab China Project"
