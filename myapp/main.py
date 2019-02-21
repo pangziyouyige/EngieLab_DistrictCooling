@@ -13,7 +13,7 @@ def input():
 	length = int(inbox("Enter length"))
 	width = int(inbox("Enter width"))
 
-def get_dataset(length=20, width=20):
+def get_dataset(length=10, width=10):
 	df = pd.DataFrame(np.random.randint(0,100, size=(length, width)))
 	df = pd.DataFrame(df.stack(), columns=["score"]).reset_index()
 	df.columns = ["length", "width", "score"]
@@ -90,7 +90,7 @@ checkbox.on_change("active", update_plot)
 
 
 div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO Created by <b><a href="https://twitter.com/Samirak93">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate the districts of a city and estimate the boundaries and potentials for implementing district cooling.<br></br><br></br>""",
-width=780, height=70)
+width=780, height=50)
 
 
 div_help = Div(text="""<b><h>INSTRUCTIONS</b></h></br></br>1.Drag the slider to choose the size of each block for tessellation, and select the urban factors from checkbox that should be considered to estimate the potential of district cooling for each block.<br></br>
