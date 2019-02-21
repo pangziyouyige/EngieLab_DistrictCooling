@@ -89,8 +89,8 @@ checkbox.on_change("active", update_plot)
 
 
 
-div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO Created by <b><a href="https://twitter.com/Samirak93">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate districts of a city and estimate boundaries and potentials for implementing district cooling.<br></br><br></br>""",
-width=1200, height=50)
+div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO by <b><a href="https://twitter.com/Samirak93">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate districts of a city and estimate boundaries and potentials for implementing district cooling.<br></br><br></br>""",
+width=1100, height=50)
 
 
 div_help = Div(text="""<b><h style="color: red;">INSTRUCTIONS</b></h></br></br>1.Drag the slider to choose the size of each block for tessellation, and select the urban factors from checkbox that should be considered to estimate the potential of district cooling for each block.<br></br>
