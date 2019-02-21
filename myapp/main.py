@@ -103,9 +103,12 @@ width=600, height=150)
 
 layout=column(row(div, img), row(plot, column(p, widgetbox(slider, checkbox),column(div_help))))
 
+layout = [[div, img],[plot, [p, widgetbox(slider, checkbox), div_help]]]
 #layout = row(plot, column(widgetbox(slider, checkbox)))
 
 # show(layout)
+
+layout.sizing_mode = "scale_both"
 
 curdoc().add_root(layout)
 
