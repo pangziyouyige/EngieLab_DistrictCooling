@@ -89,7 +89,7 @@ checkbox.on_change("active", update_plot)
 
 
 
-div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO by <b><a href="http://www.engie.cn/en/media-center/press-releases/engie-a-new-lab-set-up-in-china/">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate districts of a city and estimate boundaries and potentials for implementing district cooling.<br></br><br></br>""",
+div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO by <b><a href="http://www.engie.cn/en/media-center/press-releases/engie-a-new-lab-set-up-in-china/" target="_blank">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate districts of a city and estimate boundaries and potentials for implementing district cooling.<br></br><br></br>""",
 width=1100, height=50)
 
 
