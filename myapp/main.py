@@ -32,7 +32,7 @@ def make_plot(source):
 	# colors = ["#550b1d", "#933b41", "#cc7878", "#ddb7b1", "#dfccce", "#e2e2e2", "#c9d9d3", "#a5bab7", "#75968f"]
 	# mapper = LinearColorMapper(palette=colors, low=0, high=100)
 
-	plot = figure(plot_width=800, plot_height=800, title = "", x_range=[str(x) for x in list(range(1, 11))], y_range=[str(x) for x in list(range(1, 11))], toolbar_location=None)
+	plot = figure(plot_width=580, plot_height=580, title = "", x_range=[str(x) for x in list(range(1, 11))], y_range=[str(x) for x in list(range(1, 11))], toolbar_location=None)
 	plot.title.align = "right"
 	plot.title.text_font_size = "15px"
 	colors = ["#550b1d", "#933b41", "#cc7878", "#ddb7b1", "#dfccce", "#e2e2e2", "#c9d9d3", "#a5bab7", "#75968f"]
@@ -80,8 +80,8 @@ factors = ["FAR (Floor Area Ratio)", "Building Type Mix Diversity", "Weather-Coo
 checkbox = CheckboxGroup(labels = factors, active = [])
 source = get_dataset()
 plot = make_plot(source)
-p = Div(text="""<h><b>The Shanghai city is now being evaluated by __ blocks for tessllation</b></h>""", width=600, height=15)
-img = Div(text="""<img src="myapp/static/images/icon.png" alt="Engie Lab China" height="55" width="90">""", width = 90, height = 55)
+p = Div(text="""<h><b>The Shanghai city is now being evaluated by __ blocks for tessllation</b></h>""", width=600, height=10)
+img = Div(text="""<img src="myapp/static/images/icon.png" alt="Engie Lab China" height="50" width="85">""", width = 85, height = 50)
 
 slider.on_change("value", update_plot)
 checkbox.on_change("active", update_plot)
@@ -89,27 +89,30 @@ checkbox.on_change("active", update_plot)
 
 
 
-div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO Created by <b><a href="https://twitter.com/Samirak93">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate the districts of a city and estimate the boundaries and potentials for implementing district cooling.<br></br><br></br>""",
-width=780, height=50)
+div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO Created by <b><a href="https://twitter.com/Samirak93">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate districts of a city and estimate boundaries and potentials for implementing district cooling.<br></br><br></br>""",
+width=1200, height=50)
 
 
-div_help = Div(text="""<b><h>INSTRUCTIONS</b></h></br></br>1.Drag the slider to choose the size of each block for tessellation, and select the urban factors from checkbox that should be considered to estimate the potential of district cooling for each block.<br></br>
+div_help = Div(text="""<b><h style="color: red;">INSTRUCTIONS</b></h></br></br>1.Drag the slider to choose the size of each block for tessellation, and select the urban factors from checkbox that should be considered to estimate the potential of district cooling for each block.<br></br>
+2.Scores representing the estimated potentials of implementing district cooling are given to blocks, encoded with different colors. Hover the blocks to check the exact scores.<br></br>
 <img src="https://bokeh.pydata.org/en/latest/_images/PointDraw.png" alt="Point Draw Tool">
 <br></br> 
-2.Scores representing the estimated potentials of implementing district cooling are given to blocks, encoded with different colors. Hover the blocks to check the exact scores.<br></br>
-<img src="myapp/static/images/sh1.jpg" alt="Reference Map" height="200" width="200">
-""",
-width=600, height=150)
+""", width=600, height=130)
+
+
+#<img src="myapp/static/images/sh1.jpg" alt="Reference Map" height="200" width="200">
 
 layout=column(row(div, img), row(plot, column(p, widgetbox(slider, checkbox),column(div_help))))
 
-layout = [[div, img],[plot, [p, widgetbox(slider, checkbox), div_help]]]
 #layout = row(plot, column(widgetbox(slider, checkbox)))
 
 # show(layout)
-
-layout.sizing_mode = "scale_both"
+layout.sizing_mode = 'scale_both'
 
 curdoc().add_root(layout)
 
 curdoc().title = "Engie Lab China Project"
+
+
+
+
