@@ -64,23 +64,23 @@ def update_plot(attr, old, new):
 	plot.rect(x="length", y="width", width=1, height=1, source=source, line_color=None, fill_color=transform('score', mapper), alpha=0.4)
 
 
-	hover = HoverTool(tooltips=[("Potential Score for District Cooling", "@score")])
+	hover = HoverTool(tooltips=[("Potential Score for District Energy System", "@score")])
 	plot.add_tools(hover)
 
-	p.text = "<h><b>The Shanghai city has been evaluated by %d blocks for tessllation</b></h>" % (length*width)
+	p.text = "<h><b>The Shanghai city has been evaluated by %d districts for tessellation</b></h>" % (length*width)
 	#plot.title.text = "The Shanghai city has been evaluated by %d blocks for tessllation" % (length*width)
 
 
 slider = Slider(title = "size", start=5, end =20, step=1, value= 10)
 
-factors = ["FAR (Floor Area Ratio)", "Building Type Mix Diversity", "Weather-Cooling Degree Days", "Urban Cooling Density", "Electricy Tariff", "Population and Urban Compactness", "GDP per Capita", "Ratio of Street Surface to Building Area", "Vegetation Coverage", "Building Shading and Urban Context", "Roof Coloar and Albedo", "Building Materials", "Vehicles and Transportation", "Percentage of Water Body"]
+factors = ["FAR (Floor Area Ratio)", "Building Type Mix Diversity", "Heating/Cooling Degree Days", "Urban Heating/Cooling Loads", "Electricy Tariff", "Population and Urban Compactness", "GDP per Capita", "Ratio of Street Surface to Building Area", "Vegetation Coverage", "Building Shading and Urban Context", "Roof Color and Albedo", "Building Materials", "Vehicles and Transportation", "Percentage of Water Body"]
 
 
 
 checkbox = CheckboxGroup(labels = factors, active = [])
 source = get_dataset()
 plot = make_plot(source)
-p = Div(text="""<h><b>The Shanghai city is now being evaluated by __ blocks for tessllation</b></h>""", width=600, height=10)
+p = Div(text="""<h><b>The Shanghai city is now being evaluated by __ districts for tessellation</b></h>""", width=600, height=10)
 img = Div(text="""<img src="myapp/static/images/icon.png" alt="Engie Lab China" height="50" width="85">""", width = 85, height = 50)
 
 slider.on_change("value", update_plot)
@@ -89,12 +89,12 @@ checkbox.on_change("active", update_plot)
 
 
 
-div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT COOLING? </b></h></br></br>DEMO by <b><a href="http://www.engie.cn/en/media-center/press-releases/engie-a-new-lab-set-up-in-china/" target="_blank">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate districts of a city and estimate boundaries and potentials for implementing district cooling.<br></br><br></br>""",
-width=1100, height=50)
+div = Div(text="""<h><b>WHERE TO DO BUSINESS FOR DISTRICT HEATING AND COOLING? </b></h></br></br>DEMO by <b><a href="http://www.engie.cn/en/media-center/press-releases/engie-a-new-lab-set-up-in-china/" target="_blank">Engie Lab China</a></b> using urban data and artificial intelligence to automatically tessellate districts of a city and estimate boundaries and potentials for the use of district energy system.<br></br><br></br>""",
+width=1125, height=50)
 
 
-div_help = Div(text="""<b><h style="color: red;">INSTRUCTIONS</b></h></br></br>1.Drag the slider to choose the size of each block for tessellation, and select the urban factors from checkbox that should be considered to estimate the potential of district cooling for each block.<br></br>
-2.Scores representing the estimated potentials of implementing district cooling are given to blocks, encoded with different colors. Hover the blocks to check the exact scores.<br></br>
+div_help = Div(text="""<b><h style="color: red;">INSTRUCTIONS</b></h></br></br>1.Drag the slider to choose the size of each district for tessellation, and select the urban factors from checkbox that should be considered to estimate the potential of district energy for each district.<br></br>
+2.Scores representing the estimated potentials of implementing district energy system are given to districts, encoded with different colors. Hover the districts to check the exact scores.<br></br>
 <img src="https://bokeh.pydata.org/en/latest/_images/PointDraw.png" alt="Point Draw Tool">
 <br></br> 
 """, width=600, height=130)
@@ -111,7 +111,7 @@ layout.sizing_mode = 'scale_both'
 
 curdoc().add_root(layout)
 
-curdoc().title = "Engie Lab China Project"
+curdoc().title = "Engie Lab China DePb Project"
 
 
 
