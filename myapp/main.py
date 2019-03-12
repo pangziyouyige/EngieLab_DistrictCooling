@@ -111,7 +111,7 @@ layout.sizing_mode = 'scale_both'
 
 curdoc().add_root(layout)
 
-curdoc().title = "Engie Lab China DePb Project"
+curdoc().title = "Engie Lab China Project"
 
 
 
